@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Gallery | Honda Legacy</title>
-  <link rel="stylesheet" href="css/style.css">
 
+  <!-- INTERNAL CSS -->
   <style>
 
     /* GALLERY GRID */
@@ -27,7 +27,7 @@
       border-radius: 8px;
     }
 
-    /* BUTTON (ACCESSIBILITY) */
+    /* BUTTON ACCESSIBILITY */
     .gallery-item button {
       all: unset;
       cursor: pointer;
@@ -116,9 +116,9 @@
   <!-- NAVIGATION -->
   <header>
     <nav class="navbar">
-      <a href="meresa_yididiya_animatedcapstone.html" class="logo" id="logo">Honda Legacy</a>
+      <a href="index.html" class="logo">Honda Legacy</a>
       <ul class="nav-links">
-        <li><a href="meresa_yididiya_animatedcapstone.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="media.html">Media</a></li>
@@ -128,7 +128,7 @@
   </header>
 
   <!-- TITLE -->
-  <h1 style="text-align: center; margin-top: 3rem;">Model Gallery</h1>
+  <h1 style="text-align:center; margin-top:3rem;">Model Gallery</h1>
 
   <!-- GALLERY -->
   <div class="gallery-grid">
@@ -143,7 +143,7 @@
     <div class="gallery-item">
       <button onclick="openLightbox(this)">
         <img src="images/car2.jpg" alt="Honda Civic Type R performance hatchback" loading="lazy">
-        <div class="overlay">Honda Civic Type R</div>
+        <div class="overlay">Civic Type R</div>
       </button>
     </div>
 
@@ -170,8 +170,30 @@
 
     <div class="gallery-item">
       <button onclick="openLightbox(this)">
-        <img src="images/car6.jpg" alt="Honda Prelude classic coupe design" loading="lazy">
+        <img src="images/car6.jpg" alt="Honda Prelude classic coupe" loading="lazy">
         <div class="overlay">Honda Prelude</div>
+      </button>
+    </div>
+
+    <!-- 3 ADDED -->
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car7.jpg" alt="Honda Accord modern sedan" loading="lazy">
+        <div class="overlay">Honda Accord</div>
+      </button>
+    </div>
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car8.jpg" alt="Honda CR-V SUV on road" loading="lazy">
+        <div class="overlay">Honda CR-V</div>
+      </button>
+    </div>
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car9.jpg" alt="Honda NSX concept supercar" loading="lazy">
+        <div class="overlay">NSX Concept</div>
       </button>
     </div>
 
@@ -200,9 +222,6 @@
       document.getElementById("lightbox").classList.remove("active");
     }
   </script>
-
-  <!-- EXTERNAL SCRIPT -->
-  <script src="js/script.js"></script>
 
 </body>
 </html>
