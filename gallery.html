@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
+  <!-- META -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gallery | Honda Legacy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+
+    /* GALLERY GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      padding: 2rem 5%;
+    }
+
+    /* GALLERY ITEM */
+    .gallery-item {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    /* BUTTON (ACCESSIBILITY) */
+    .gallery-item button {
+      all: unset;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery-item button:focus {
+      outline: 3px solid white;
+    }
+
+    /* IMAGE */
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    /* HOVER + FOCUS EFFECT */
+    .gallery-item:hover img,
+    .gallery-item:focus-within img {
+      transform: scale(1.1);
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay,
+    .gallery-item:focus-within .overlay {
+      transform: translateY(0);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    /* CLOSE BUTTON */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* REDUCED MOTION */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="navbar">
+      <a href="meresa_yididiya_animatedcapstone.html" class="logo" id="logo">Honda Legacy</a>
+      <ul class="nav-links">
+        <li><a href="meresa_yididiya_animatedcapstone.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- TITLE -->
+  <h1 style="text-align: center; margin-top: 3rem;">Model Gallery</h1>
+
+  <!-- GALLERY -->
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car1.jpg" alt="Honda NSX sports car in red" loading="lazy">
+        <div class="overlay">Honda NSX</div>
+      </button>
+    </div>
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car2.jpg" alt="Honda Civic Type R performance hatchback" loading="lazy">
+        <div class="overlay">Honda Civic Type R</div>
+      </button>
+    </div>
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car3.jpg" alt="Honda S2000 convertible sports car" loading="lazy">
+        <div class="overlay">Honda S2000</div>
+      </button>
+    </div>
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car4.jpg" alt="Honda Legend luxury sedan" loading="lazy">
+        <div class="overlay">Honda Legend</div>
+      </button>
+    </div>
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car5.jpg" alt="Honda Integra compact sports coupe" loading="lazy">
+        <div class="overlay">Honda Integra</div>
+      </button>
+    </div>
+
+    <div class="gallery-item">
+      <button onclick="openLightbox(this)">
+        <img src="images/car6.jpg" alt="Honda Prelude classic coupe design" loading="lazy">
+        <div class="overlay">Honda Prelude</div>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" alt="Expanded car image">
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function openLightbox(button) {
+      const img = button.querySelector("img");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+
+      lightbox.classList.add("active");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
+  </script>
+
+  <!-- EXTERNAL SCRIPT -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
