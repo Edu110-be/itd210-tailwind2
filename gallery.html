@@ -24,7 +24,7 @@ body {
   color: #333;
 }
 
-/* NAVBAR (FIXED + CONSISTENT) */
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -56,7 +56,7 @@ body {
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
-  transition: color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover,
@@ -71,21 +71,21 @@ h1 {
   margin-top: 3rem;
 }
 
-/* GALLERY GRID */
+/* GALLERY GRID (3 PER ROW) */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
   padding: 2rem 5%;
 }
 
 /* GALLERY ITEM */
 .gallery-item {
   position: relative;
-  height: 250px;
+  height: 260px;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 /* BUTTON RESET */
@@ -108,10 +108,10 @@ h1 {
 /* HOVER EFFECT */
 .gallery-item:hover img,
 .gallery-item:focus-within img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* OVERLAY */
+/* OVERLAY TEXT */
 .overlay {
   position: absolute;
   bottom: 0;
@@ -158,7 +158,13 @@ h1 {
   cursor: pointer;
 }
 
-/* REDUCED MOTION (ACCESSIBILITY) */
+/* ACCESSIBILITY */
+.gallery-item button:focus {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
@@ -166,14 +172,23 @@ h1 {
   }
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .nav-links {
-    gap: 1rem;
+/* RESPONSIVE DESIGN */
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
   }
 
   .gallery-item {
-    height: 200px;
+    height: 220px;
   }
 }
 
