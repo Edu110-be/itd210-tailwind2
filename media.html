@@ -8,14 +8,18 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* =========================
-       MEDIA PAGE STYLES
-       Purpose: Create responsive, interactive media experience
-       ========================= */
+    /*BASE RESET */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
     }
 
     main {
@@ -24,10 +28,48 @@
       margin: auto;
     }
 
-    /* =========================
-       RESPONSIVE VIDEO CONTAINER (YouTube embed)
-       ========================= */
+    /*NAVBAR*/
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background-color: #d60000;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
+    .navbar .logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: #ffd1d1;
+    }
+
+    /* RESPONSIVE VIDEO (YouTube) */
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
@@ -45,20 +87,7 @@
       height: 100%;
     }
 
-    /* =========================
-       HTML5 VIDEO (required by rubric)
-       ========================= */
-
-    video {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 1rem;
-    }
-
-    /* =========================
-       TABS (Interactive Element #1)
-       ========================= */
-
+    /* TABS (INTERACTIVE #1) */
     .tabs {
       display: flex;
       gap: 10px;
@@ -89,10 +118,7 @@
       display: block;
     }
 
-    /* =========================
-       ANIMATION (Interactive Element #2)
-       ========================= */
-
+    /* ANIMATION (INTERACTIVE #2)*/
     .pulse {
       width: 70px;
       height: 70px;
@@ -113,7 +139,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Accessibility: reduced motion support */
+    /* Accessibility: reduced motion */
     @media (prefers-reduced-motion: reduce) {
       * {
         animation: none !important;
@@ -131,12 +157,11 @@
 
 <body>
 
-  <!-- =========================
-       NAVIGATION
-       ========================= -->
+  <!-- NAVIGATION BAR -->
   <header>
     <nav class="navbar">
       <a href="index.html" class="logo">Honda Legacy</a>
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -150,12 +175,9 @@
   <main>
 
     <h1>Featured Media Experience</h1>
-    <p>Explore Honda’s innovation through video, sound, and motion.</p>
+    <p>Explore Honda innovation through video, sound, and motion.</p>
 
-    <!-- =========================
-         INTERACTIVE TABS (REQUIRED INTERACTION #1)
-         ========================= -->
-
+    <!-- INTERACTIVE TABS (REQUIRED #1) -->
     <section>
       <h2>Media Player</h2>
 
@@ -164,10 +186,9 @@
         <button class="tab-btn" onclick="switchTab('audioTab')">Audio</button>
       </div>
 
-      <!-- VIDEO TAB -->
+      <!-- VIDEO TAB (YouTube ONLY) -->
       <div id="videoTab" class="tab-content active">
 
-        <!-- YouTube Embed (provided by user) -->
         <div class="video-container">
           <iframe 
             src="https://www.youtube.com/embed/w4XiaP-WhNw?si=6ZPDlISZxLYo_YJY"
@@ -178,15 +199,7 @@
           </iframe>
         </div>
 
-        <p><strong>Transcript:</strong> This video highlights Honda’s engineering philosophy, innovation in vehicle design, and performance technology.</p>
-
-        <!-- HTML5 VIDEO (REQUIRED BY RUBRIC) -->
-        <video controls poster="images/honda-poster.jpg">
-          <source src="media/honda-placeholder.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-
-        <p><strong>Note:</strong> Replace this file with a licensed Honda-related MP4 clip if available.</p>
+        <p><strong>Transcript:</strong> This video showcases Honda’s engineering philosophy and innovation in automotive design and performance.</p>
 
       </div>
 
@@ -194,33 +207,27 @@
       <div id="audioTab" class="tab-content">
 
         <audio controls>
-          <source src="media/engine-sound.mp3" type="audio/mpeg">
+          <source src="media/engine.mp3" type="audio/mpeg">
         </audio>
 
-        <p><strong>Transcript:</strong> Engine startup and acceleration sounds representing Honda performance engineering.</p>
+        <p><strong>Transcript:</strong> Engine startup and acceleration sound representing Honda performance engineering.</p>
 
       </div>
     </section>
 
-    <!-- =========================
-         ANIMATION (REQUIRED #2)
-         ========================= -->
-
+    <!-- ANIMATION-->
     <section>
       <h2>Engineering Pulse</h2>
-      <p>Innovation is the heartbeat of Honda design.</p>
+      <p>The heartbeat of Honda innovation.</p>
       <div class="pulse" aria-hidden="true"></div>
     </section>
 
-    <!-- =========================
-         EXTRA INTERACTIVE CONTROL (REQUIRED #3)
-         ========================= -->
-
+    <!-- AUDIO CONTROL -->
     <section>
-      <h2>Quick Audio Control</h2>
+      <h2>Quick Engine Control</h2>
 
       <audio id="engineAudio">
-        <source src="media/engine-rev.mp3" type="audio/mpeg">
+        <source src="media/engine.mp3" type="audio/mpeg">
       </audio>
 
       <button onclick="toggleAudio()">Play / Pause Engine Sound</button>
@@ -229,10 +236,7 @@
   </main>
 
   <script>
-    /* =========================
-       TAB FUNCTIONALITY
-       ========================= */
-
+    /* TAB SWITCHING */
     function switchTab(tabId) {
       const tabs = document.querySelectorAll('.tab-content');
       const buttons = document.querySelectorAll('.tab-btn');
@@ -244,10 +248,7 @@
       event.target.classList.add('active');
     }
 
-    /* =========================
-       AUDIO CONTROL
-       ========================= */
-
+    /* AUDIO TOGGLE */
     function toggleAudio() {
       const audio = document.getElementById('engineAudio');
 
