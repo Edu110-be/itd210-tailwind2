@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media | Honda Legacy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =========================
+       MEDIA PAGE ENHANCEMENTS
+       Purpose: Improve interactivity, accessibility, and engagement per capstone requirements
+       ========================= */
+
+    body {
+      margin: 0;
+    }
+
+    /* Responsive media wrapper for video/audio */
+    .media-wrapper {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    /* =========================
+       VIDEO STYLING (HTML5 REQUIRED)
+       ========================= */
+
+    .video-box {
+      margin-bottom: 2rem;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* =========================
+       TAB INTERACTION (Interactive Element #1)
+       ========================= */
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      background: #1f2a44;
+      color: white;
+      border-radius: 6px;
+    }
+
+    .tab-btn.active {
+      background: #ffcc00;
+      color: black;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* =========================
+       ANIMATION (Interactive Element #2)
+       ========================= */
+
+    .pulse {
+      width: 70px;
+      height: 70px;
+      margin: 2rem auto;
+      background: red;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Buttons */
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
+  <header>
+    <nav class="navbar">
+      <a href="meresa_yididiya_animatedcapstone.html" class="logo">Honda Legacy</a>
+      <ul class="nav-links">
+        <li><a href="meresa_yididiya_animatedcapstone.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="media.html" aria-current="page">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="media-wrapper">
+
+    <h1>Featured Media Experience</h1>
+    <p>Explore Honda’s engineering journey through video, audio, and interactive storytelling.</p>
+
+    <!-- =========================
+         INTERACTIVE TABS (Requirement: interactive media control)
+         ========================= -->
+
+    <section>
+      <h2>Media Player</h2>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('videoTab')">Video</button>
+        <button class="tab-btn" onclick="switchTab('audioTab')">Audio</button>
+      </div>
+
+      <!-- VIDEO TAB (HTML5 REQUIRED VIDEO + POSTER) -->
+      <div id="videoTab" class="tab-content active">
+        <div class="video-box">
+          <video controls poster="images/honda-poster.jpg">
+            <source src="media/honda-engine.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <p><strong>Transcript:</strong> This video showcases Honda’s engineering innovations, focusing on performance, safety, and efficiency across modern vehicles.</p>
+      </div>
+
+      <!-- AUDIO TAB (Requirement: audio + transcript) -->
+      <div id="audioTab" class="tab-content">
+        <audio controls>
+          <source src="media/honda-engine-sound.mp3" type="audio/mpeg">
+        </audio>
+
+        <p><strong>Transcript:</strong> This audio captures real engine startup sounds and acceleration dynamics of Honda performance vehicles.</p>
+      </div>
+    </section>
+
+    <!-- =========================
+         ANIMATION SECTION
+         ========================= -->
+
+    <section>
+      <h2>Engineering Pulse</h2>
+      <p>Motion represents the heartbeat of Honda innovation.</p>
+      <div class="pulse" aria-hidden="true"></div>
+    </section>
+
+    <!-- =========================
+         EXTRA INTERACTIVE CONTROL (Requirement boost)
+         ========================= -->
+
+    <section>
+      <h2>Quick Sound Control</h2>
+      <audio id="engineSound">
+        <source src="media/engine-rev.mp3" type="audio/mpeg">
+      </audio>
+
+      <button onclick="toggleAudio()">Play / Pause Engine Rev</button>
+      <p>Click to control audio playback using JavaScript.</p>
+    </section>
+
+  </main>
+
+  <script>
+    /* =========================
+       TAB FUNCTION
+       ========================= */
+    function switchTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      tabs.forEach(t => t.classList.remove('active'));
+      buttons.forEach(b => b.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    /* =========================
+       AUDIO CONTROL
+       ========================= */
+    function toggleAudio() {
+      const audio = document.getElementById('engineSound');
+      audio.paused ? audio.play() : audio.pause();
+    }
+  </script>
+
+</body>
+</html>
 
