@@ -131,6 +131,42 @@ input:focus, textarea:focus, button:focus {
     grid-template-columns: 1fr;
   }
 }
+
+  .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 1rem 2rem;
+}
+
+/* Logo styling */
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Nav links container */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+/* Individual links */
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* Hover effect (adds interactivity) */
+.nav-links li a:hover {
+  color: #d60000;
+}
 </style>
 
 <script>
