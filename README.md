@@ -21,3 +21,19 @@ To improve accessibility, I included transcripts for both the video and audio co
 - Technologies Used
 
 HTML, CSS, JavaScript, and GitHub Pages.
+
+Milestone: Contact Page (Milestone 5)
+
+- What’s New in This Milestone
+
+In this milestone, I built and improved the Contact page to make it more interactive and user-friendly. The page now includes a working contact form where users can enter their name, email, subject, and message.
+
+I added JavaScript validation so the form checks for missing or incorrect inputs and shows inline error messages instead of pop-ups. Once everything is filled out correctly, a success message appears to confirm submission.
+
+To make the page more interactive, I also added a live character counter for the message box and an FAQ section that expands and collapses when clicked.
+
+On top of that, I improved accessibility by adding proper labels, keyboard navigation support, visible focus states, and ARIA attributes to help screen readers.
+
+- Technologies Used
+
+HTML, CSS, JavaScript, and GitHub Pages
