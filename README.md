@@ -17,10 +17,10 @@ I also added interactive tabs so users can switch between video and audio conten
 
 To improve accessibility, I included transcripts for both the video and audio content, along with keyboard-friendly controls and reduced motion support.
 
-
 - Technologies Used
 
 HTML, CSS, JavaScript, and GitHub Pages.
+
 
 Milestone: Contact Page (Milestone 5)
 
