@@ -1,1 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Contact Us | Honda Legacy</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+/* PAGE LAYOUT
+   WHY: Keeps your original structure but improves spacing */
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+}
+
+/* Section headings */
+.contact-form h2, .contact-info h2 {
+  color: #d60000;
+  margin-bottom: 1.5rem;
+}
+
+/* FORM STYLING */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+/* Input styling */
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Accessible focus style */
+input:focus, textarea:focus, button:focus {
+  outline: 3px solid gold;
+}
+
+/* Button styling */
+.submit-btn {
+  background-color: #d60000;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #a30000;
+}
+
+/* ERROR + SUCCESS */
+.error {
+  color: #d60000;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  display: none;
+  background: #28a745;
+  color: white;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Smooth animation */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Character counter */
+.char-count {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* FAQ ACCORDION */
+.faq {
+  margin-top: 3rem;
+}
+
+.faq-question {
+  background: #d60000;
+  color: white;
+  padding: 0.8rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0.8rem;
+  background: #f4f4f4;
+}
+
+/* CONTACT INFO */
+.info-item {
+  margin-bottom: 2rem;
+}
+
+/* Map placeholder */
+.map-placeholder {
+  width: 100%;
+  height: 250px;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 850px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+/* FORM VALIDATION
+   WHY: Required for assignment */
+function validateForm(e) {
+  e.preventDefault();
+
+  let valid = true;
+
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+
+  // Clear previous errors
+  document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
+  // Name validation
+  if (name.value.trim() === "") {
+    document.getElementById("nameError").textContent = "Name is required";
+    valid = false;
+  }
+
+  // Email validation
+  const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.value.match(pattern)) {
+    document.getElementById("emailError").textContent = "Enter a valid email";
+    valid = false;
+  }
+
+  // Message validation
+  if (message.value.length < 10) {
+    document.getElementById("messageError").textContent = "Message must be at least 10 characters";
+    valid = false;
+  }
+
+  // Success state
+  if (valid) {
+    document.getElementById("successBox").style.display = "block";
+    document.getElementById("contactForm").reset();
+  }
+}
+
+/* CHARACTER COUNTER */
+function updateCount() {
+  let text = document.getElementById("message").value;
+  document.getElementById("charCount").textContent = text.length + " characters";
+}
+
+/* FAQ TOGGLE */
+function toggleFAQ(el) {
+  let answer = el.nextElementSibling;
+  answer.style.display = answer.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+  <nav class="navbar">
+    <a href="meresa_yididiya_animatedcapstone.html" class="logo">Honda Legacy</a>
+    <ul class="nav-links">
+      <li><a href="meresa_yididiya_animatedcapstone.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <h1>Get In Touch</h1>
+  <p>Have questions about Honda vehicles? Send us a message.</p>
+</section>
+
+<div class="contact-container">
+
+<!-- CONTACT FORM -->
+<section class="contact-form">
+  <h2>Send us a Message</h2>
+
+  <form id="contactForm" onsubmit="validateForm(event)" aria-live="polite">
+
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+      <div id="nameError" class="error"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required>
+      <div id="emailError" class="error"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" required>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" rows="6" onkeyup="updateCount()" required></textarea>
+      <div id="charCount" class="char-count">0 characters</div>
+      <div id="messageError" class="error"></div>
+    </div>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+
+  </form>
+
+  <!-- SUCCESS MESSAGE -->
+  <div id="successBox" class="success-message">
+    ✅ Your message has been sent successfully!
+  </div>
+
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-info">
+  <h2>Contact Information</h2>
+
+  <div class="info-item">
+    <strong>Headquarters:</strong>
+    <p>123 Honda Way, Tokyo, Japan</p>
+  </div>
+
+  <div class="info-item">
+    <strong>Email:</strong>
+    <p>support@hondalegacy.com</p>
+  </div>
+
+  <div class="info-item">
+    <strong>Phone:</strong>
+    <p>+1 (555) HONDA-01</p>
+  </div>
+
+  <div class="map-placeholder">
+    <p>Interactive Map Placeholder</p>
+  </div>
+
+</section>
+
+</div>
+
+<!-- FAQ SECTION -->
+<section class="faq">
+  <h2>FAQ</h2>
+
+  <div class="faq-question" onclick="toggleFAQ(this)">
+    Do you sell Honda vehicles?
+  </div>
+  <div class="faq-answer">
+    No, this site is for educational purposes only.
+  </div>
+
+  <div class="faq-question" onclick="toggleFAQ(this)">
+    Can I request a car feature?
+  </div>
+  <div class="faq-answer">
+    Yes! Send us a message and we may feature it.
+  </div>
+
+</section>
+
+</main>
+
+</body>
+</html>
