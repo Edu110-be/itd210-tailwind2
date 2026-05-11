@@ -49,6 +49,26 @@ I also learned how to:
 - Connect external JavaScript files for scalability
 - Design a consistent theme across all pages
 
+  
+Strongest Part of the Site -
+
+The strongest part of my site is the homepage layout with interactive cards and navigation. It is simple, visually clear, and helps users easily move between pages. The hover effects and transitions also make the site feel more modern and engaging.
+
+
+Responsive Design & Interactivity -
+
+I learned that responsive design is not just shrinking elements but reorganizing layouts using Flexbox and media queries so the site works on all screen sizes.
+
+
+Feedback That Helped Most - 
+
+The most helpful feedback I received was to comment my code and organize it into clear sections. This made my code much easier to read, debug, and maintain. It also helped me understand my own structure better when reviewing it later.
+
+
+Future Improvements -
+
+If I had more time, I would add more advanced JavaScript features like a gallery slider, and optimize performance by compressing images.
+
 
 Credits
 
