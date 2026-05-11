@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+   <!-- Character encoding -->
 <meta charset="UTF-8">
+  
+   <!-- Makes the website responsive on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
+<!-- Page title shown in browser tab -->
 <title>Contact Us | Honda Legacy</title>
 
 <style>
-  
+
+  /* Apply font family to the page */
   body, input, textarea, button {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+   /* Remove default spacing and use border-box sizing */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -40,6 +47,7 @@
   margin-bottom: 1.5rem;
 }
 
+  /* Style form labels */
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
@@ -69,6 +77,7 @@ input:focus, textarea:focus, button:focus {
   transition: 0.3s;
 }
 
+  /* Button hover effect */
 .submit-btn:hover {
   background-color: #a30000;
 }
@@ -106,6 +115,7 @@ input:focus, textarea:focus, button:focus {
   margin-top: 3rem;
 }
 
+  /* FAQ question button styling */
 .faq-question {
   background: #d60000;
   color: white;
@@ -114,6 +124,7 @@ input:focus, textarea:focus, button:focus {
   margin-top: 10px;
 }
 
+  /* FAQ answer hidden by default */
 .faq-answer {
   display: none;
   padding: 0.8rem;
@@ -132,6 +143,7 @@ input:focus, textarea:focus, button:focus {
   }
 }
 
+   /* Main navigation bar */
   .navbar {
   display: flex;
   justify-content: space-between;
@@ -151,12 +163,14 @@ input:focus, textarea:focus, button:focus {
   text-decoration: none;
 }
 
+  /* Navigation links container */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
 
+  /* Navigation link styles */
 .nav-links a {
   color: #fff;
   text-decoration: none;
@@ -166,6 +180,7 @@ input:focus, textarea:focus, button:focus {
   transition: 0.3s ease;
 }
 
+  /* Navigation hover and focus effects */
 .nav-links a:hover,
 .nav-links a:focus {
   color: #ffd1d1;
@@ -235,8 +250,10 @@ function toggleFAQ(el) {
 <header>
     <nav class="navbar">
 
+      <!-- Website logo -->
       <a href="index.html" class="logo">Honda Legacy</a>
 
+      <!-- Navigation links -->
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -264,23 +281,27 @@ function toggleFAQ(el) {
 
   <form id="contactForm" onsubmit="validateForm(event)" aria-live="polite">
 
+    <!-- Name input -->
     <div class="form-group">
       <label for="name">Full Name</label>
       <input type="text" id="name" required>
       <div id="nameError" class="error"></div>
     </div>
 
+    <!-- Email input -->
     <div class="form-group">
       <label for="email">Email Address</label>
       <input type="email" id="email" required>
       <div id="emailError" class="error"></div>
     </div>
 
+    <!-- Subject input -->
     <div class="form-group">
       <label for="subject">Subject</label>
       <input type="text" id="subject" required>
     </div>
 
+    <!-- Message textarea -->
     <div class="form-group">
       <label for="message">Message</label>
       <textarea id="message" rows="6" onkeyup="updateCount()" required></textarea>
@@ -288,6 +309,7 @@ function toggleFAQ(el) {
       <div id="messageError" class="error"></div>
     </div>
 
+     <!-- Submit button -->
     <button type="submit" class="submit-btn">Send Message</button>
 
   </form>
@@ -303,16 +325,19 @@ function toggleFAQ(el) {
 <section class="contact-info">
   <h2>Contact Information</h2>
 
+  <!-- Address information -->
   <div class="info-item">
     <strong>Headquarters:</strong>
     <p>10922 Honda Way, Tokyo, Japan</p>
   </div>
 
+  <!-- Email information -->
   <div class="info-item">
     <strong>Email:</strong>
     <p>support@hondalegacy.com</p>
   </div>
 
+  <!-- Phone information -->
   <div class="info-item">
     <strong>Phone:</strong>
     <p>+1 555-5334-2987</p>
@@ -326,16 +351,22 @@ function toggleFAQ(el) {
 <section class="faq">
   <h2>FAQ</h2>
 
+   <!-- FAQ Question 1 -->
   <div class="faq-question" onclick="toggleFAQ(this)">
     Do you sell Honda vehicles?
   </div>
+
+  <!-- FAQ Answer 1 -->
   <div class="faq-answer">
     No, this site is for educational purposes only.
   </div>
 
+   <!-- FAQ Question 2 -->
   <div class="faq-question" onclick="toggleFAQ(this)">
     Can I request a car feature?
   </div>
+
+  <!-- FAQ Answer 1 -->
   <div class="faq-answer">
     Yes! Send us a message and we may feature it.
   </div>
